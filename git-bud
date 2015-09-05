@@ -45,6 +45,7 @@ fi
 git checkout HEAD^0 &> /dev/null
 
 git commit && git branch $new_branch_name &> /dev/null && \
-    echo "Created new bud $new_branch_name (at $(git rev-parse --short $new_branch_name))" && \
-    git checkout $current_branch &> /dev/null || \
+    echo "Created new bud $new_branch_name (at $(git rev-parse --short $new_branch_name))" || \
     echo "Failed to create new bud, aborted." >&2
+
+git checkout $current_branch &> /dev/null
